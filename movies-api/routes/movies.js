@@ -22,7 +22,7 @@ function moviesApi(app) {
   });
 
   router.get('/:movieId', async function(req, res, next) {
-    const { movieId } = req.params.movieId;
+    const { movieId } = req.params;
     try {
       const movie = await moviesService.getMovie({ movieId });
 
@@ -69,8 +69,12 @@ function moviesApi(app) {
 
   router.patch('/:movieId', async function(req, res, next) {
     const { movieId } = req.params;
+    const { body: movie } = req;
     try {
-      const patchedMovieId = await moviesService.patchMovie({ movieId });
+      const patchedMovieId = await moviesService.patchMovie({
+        movieId,
+        movie
+      });
 
       res.status(200).json({
         data: patchedMovieId,
