@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const moviesMock = [
   {
     id: 'd2a4a062-d256-41bb-b1b2-9d915af6b75e',
@@ -20,7 +21,7 @@ const moviesMock = [
     ]
   },
   {
-    id: '3f951b6d-03fa-4fb0-a7a1-188c0abe9e06',
+    id: '5e24b99f78e0751fc072ff8d',
     title: "King Solomon's Mines",
     year: 2019,
     cover: 'http://dummyimage.com/800x600.png/dddddd/000000',
@@ -162,8 +163,24 @@ class MoviesServiceMock {
     return Promise.resolve(moviesMock);
   }
 
+  async getMovie() {
+    return Promise.resolve(moviesMock[1]);
+  }
+
   async createMovie() {
-    return Promise.resolve(moviesMock[0]);
+    return Promise.resolve(moviesMock[1].id);
+  }
+
+  async updateMovie() {
+    return Promise.resolve(moviesMock[1].id);
+  }
+
+  async patchMovie() {
+    return Promise.resolve(moviesMock[1].id);
+  }
+
+  async deleteMovie() {
+    return Promise.resolve(moviesMock[1].id);
   }
 }
 
